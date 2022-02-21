@@ -1,0 +1,77 @@
+# what do you learn here
+1. Activities of a DevOps engineer Maven
+2. Build Project of maven
+3. Setup and Integration of maven with jenkins
+
+# Topics covered 
+# Section : Intoduction
+1. What is Maven
+2. How Maven helps to a DevOps Engineer
+3. Resources
+
+# Section : Maven With Linux
+1. Prepare Maven server
+2. Setup maven on Linux
+3. Build maven project on Linux
+4. commonly used maven goals
+5. create a project with maven archetype
+6. settings.xml
+7. Deploy an application maven server
+
+# Section : Maven in DevOps workflow
+1. setup jenkins server 
+2. Add Maven server as a agent to jenkins
+3. Build a java project on agent (maven seerver)
+
+
+what is maven?
+Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project build, reporting and documentation from a central piece of information
+
+Day to Day activity of a typical developer 
+
+Developer Activities
+1. Write code in favourite IDE (visualcode)
+2. compile the code locally
+3. Test it
+4. create a package
+5. Deploy it local on application server (incase if he has a local application server just to validate his code working on his system) once done 
+6. push the working code in source code repository
+
+
+But the challenge over here is while writing his application code or while working on project  its a quite common behaviour that we use a some third party librarys or packages, so whenever you compile test and create a package, we need to make sure that all the relevant packages are available to build our code, otherwise it doesnt work right.
+
+as a developer i need to manually download all the package, which are required to run my application.
+lets assume that i have downloaded and i compiled it and its working properly and i can able to deploy it, but the problem here is (pushing the code into source code repository) i cannot push the all package into source code repository, right
+
+the name itself it is saying that source code management like github or bitbucket, it is maintain only source code,
+we dont push all the third party libraries ok
+
+some other want to compile it and deploy into some other systems, how does it possible it is difficult right,?
+
+# lets assume that u have given packages apart of the source code 
+
+the other team members or other party's or even i can say devops engineer could able to build it and deploy it
+
+after some period of time u developing few other features where u can pull the latest library or third part packages into your application , again it become a problem that   you need to download the latest packages onto your local system, while doing test and also u need provide same packages to the people whoever using this code its quite difficult problem right,?
+ instead of that one how it will be if i  give a single file, which tells about whats the package's are required and what are the libraries are required to run this application and that file itself can identify and download those packages.,? yes 
+ thats where maven come into the picture 
+
+maven can able to download all the third party libraries which are required for your application and it also do the  compilation, test and even deployment of the application 
+not only that if theres any update in the third-party libraries or packages which we are using then you just need to update that file, it automatically download whenever you are compile or testing our code its good right?
+
+so maven can help us that build your application with the all required packages with the minimal efforts, sharing only source code for the community or the people whoever want use your application along with the file which mentions that what libraries does it required that file we can call it as # POM.XML
+
+Maven can helps a developer to build, test, deploy code efficiently 
+compile the code , downloading all the dependencies, building the code and packaging the code
+
+# How does it work at devops engineer level
+
+once developer is tested his code and if its working fine obviously he need to check-in his code to github (source code management)
+once code is pushed to github as a devops engineer we need to take the code, we need to build the artifacts from it right?
+artifacts nothing but output of the source code
+
+when ever we doing that (build ) we need to know the dependencies does it require once you have taken that dependencies
+we need to build it once u build it we need to run the unit test cases and last we can do deploy
+
+who will do all the things? so, here maven comes into the picture
+
