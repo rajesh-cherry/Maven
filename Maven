@@ -119,12 +119,9 @@ what is archetype?
 Archetype is maven project templating tool kit. (which means that its like a template which comes with default directory structure as well as some default application with that application we can do our changes its like a some example project )
 An Archetype is defined as an original pattern or model from which all other things of the same kind are made. The Name file as we are trying to provide a system that provide consitent means of generating maven projects.
 
-
-usually maven goals are defined as the build lifecycle format
-
-Maven Goals are set in the build lifecycle format we need to choose the right goal for our project
-
-# Maven Goals
+## Maven Goals
+maven goals are defined as the build lifecycle format.
+Maven Goals are set in the build lifecycle format we need to choose the right goal for our project.
 
 Goals are divided in to three different build life cycle
 1. default lifecycle
@@ -141,3 +138,113 @@ package - take the compiled code and package it in its distributable format, suc
 verify - run any checks to verify the package is valid and meets quality criteria.
 install  - install the package into local repository, for use as dependency in other projects locally
 deploy - copies the final package to the remote repository for sharing with other projects.
+
+
+# Lets deploy maven project in linux 
+
+# Pre-Requisties:
+1. Install EC2 server (any linux server)
+2. setup JAVA JDK
+3. Setup Maven (https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz) 
+
+# setup JAVA
+
+``` bash
+java -v 
+```
+This is the command to install latest Java
+
+```bash
+yum install java-1.8*
+```
+check the java is installed or not and check the version with command 
+
+``` bash
+java -version
+```
+
+Now we need to setup JAVA HOME Path for that we need to update .bash_profile and add JAVA HOME Path
+
+``` bash 
+vi ~/.bash_profile
+```
+how i can check java home path 
+
+```bash 
+where is java
+```
+```bash
+find /usr/lib/jvm/java-1.8* | head -n 3
+```
+it will show the top 3 and copy the required one update ~/.bash_profile
+
+``` bash
+vi ~/.bash_profile
+```
+
+under fi update the path like JAVA_HOME=<PATH> once done this  add this one to Path , beside PATH= :$JAVA_HOME
+
+check the updated Path how can we check it i.e., 
+
+```bash
+echo $PATH
+```
+u cannot able to see the updated path but u can do with source
+
+```bash
+source ~/.bash_profile
+```
+which means that read the file and now u can see with
+
+```bash 
+echo $PATH
+```
+# How to setup MAVEN
+
+open the optional directory i.e, where we can configure this kind of packages
+
+```bash
+cd /opt 
+```
+download the maven Package
+
+```bash
+wget https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz
+```
+once we have downloaded we need to extract it how we can do that lets see
+
+```bash
+tar -xvzf <folder-name>
+```
+now let's see how we can setup home path for the maven in ~/.bash_profile for that we need to open the <maven-folder> and copy the pwd and set the path
+
+```bash
+vi ~/.bash_profile
+```
+under fi paste the maven home path, for home path it is M2_HOME
+
+```bash
+M2_HOME=<maven-path>
+```
+and we have to add one more path for bin, how we can do
+
+``` bash
+M2=<maven-path/bin>
+```
+and update the path beside PATH, $M2:M2_HOME
+
+check the updated Path how can we check it i.e., 
+
+```bash
+echo $PATH
+```
+u cannot able to see the updated path but u can do with source
+
+```bash
+source ~/.bash_profile
+```
+which means that read the file and now u can see with
+
+```bash 
+echo $PATH
+```
